@@ -12,7 +12,7 @@ export const config = getDefaultConfig({
   ssr: true,
   transports: {
     [rootstockTestnet.id]: http(
-      'https://public-node.testnet.rsk.co'
+      'https://31.rpc.thirdweb.com'
     ),
   },
 });
