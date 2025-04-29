@@ -1,7 +1,6 @@
 import { useChainId } from 'wagmi';
 import { useState, useEffect } from 'react';
 import { abi as testnetAbi, contractAddress as testnetAddress } from '../constants/contractInfo';
-import { abi as mainnetAbi, contractAddress as mainnetAddress } from '../constants/contractInfoMainnet';
 import { rootstockTestnet } from 'wagmi/chains';
 
 export function useContractInfo() {
