@@ -7,7 +7,6 @@ This is a decentralized Rock-Paper-Scissors game built on the RSK Testnet networ
 - [Getting Started](#getting-started)
 - [Features](#features)
 - [Architecture](#architecture)
-- Smart Contract Repository           https://github.com/Afoxcute/contract/tree/main
 
 ## Getting Started
 
@@ -15,8 +14,8 @@ To get started with the project, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/rockpaperscissors.git
-   cd rockpaperscissors
+   git clone https://github.com/Afoxcute/Rsk-battle-arena.git
+   cd Rsk-battle-arena
    ```
 
 2. Install the dependencies:
