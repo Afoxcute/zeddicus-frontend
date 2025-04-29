@@ -61,6 +61,6 @@ This project is open source and available under the MIT License.
 
 ### 🔗 Quick Links
 
-- [GitHub Repository](https://github.com/Afoxcute/zeddicus-frontend)
-- [Live Demo](https://zeddicus-frontend.vercel.app/)
+- [GitHub Repository](https://github.com/Afoxcute/rsk-battle-arena)
+- [Live Demo](https://rsk-battle-arena.vercel.app/)
 - [Contract on RSK Explorer](https://explorer.testnet.rootstock.io/address/0x7296c77edd04092fd6a8117c7f797e0680d97fa1) 
