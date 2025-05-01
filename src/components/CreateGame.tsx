@@ -125,9 +125,9 @@ export default function CreateGame() {
       <div className='space-y-6 text-white'>
         {/* Game Type Selection */}
         <div className='space-y-4'>
-          <h2 className='text-xl font-semibold text-gray-200 flex items-center'>
-            <Swords className="w-5 h-5 mr-2 text-blue-400" />
-            SELECT YOUR BATTLE MODE
+          <h2 className='text-lg sm:text-xl font-semibold text-gray-200 flex items-center flex-wrap'>
+            <Swords className="w-5 h-5 mr-2 text-blue-400 flex-shrink-0" />
+            <span className="text-sm sm:text-base">SELECT YOUR BATTLE MODE</span>
           </h2>
           <div className='grid gap-4'>
             {GAME_TYPES.map((type) => {
@@ -137,30 +137,32 @@ export default function CreateGame() {
                 <button
                   key={type.id}
                   onClick={() => setSelectedType(type.id)}
-                  className={`flex items-center p-4 rounded-lg border-2 transition-all duration-200 ${
+                  className={`flex flex-col sm:flex-row items-start sm:items-center p-3 sm:p-4 rounded-lg border-2 transition-all duration-200 ${
                     isSelected
-                      ? 'border-blue-500 bg-blue-500/10 transform scale-105 shadow-lg shadow-blue-500/20'
-                      : 'border-gray-700 bg-gray-800 hover:border-gray-600 hover:transform hover:scale-102'
+                      ? 'border-blue-500 bg-blue-500/10 transform scale-102 shadow-lg shadow-blue-500/20'
+                      : 'border-gray-700 bg-gray-800 hover:border-gray-600 hover:transform hover:scale-101'
                   }`}
                 >
                   <div
                     className={`p-2 rounded-lg ${
                       isSelected ? 'bg-blue-500/20' : 'bg-gray-700'
-                    }`}
+                    } mb-2 sm:mb-0`}
                   >
                     <Icon
-                      className={`w-6 h-6 ${
+                      className={`w-5 h-5 sm:w-6 sm:h-6 ${
                         isSelected ? 'text-blue-400 animate-pulse' : 'text-gray-400'
                       }`}
                     />
                   </div>
-                  <div className='ml-4 flex-1 text-left'>
-                    <h3 className='font-medium'>{type.name}</h3>
-                    <p className='text-sm text-gray-400'>{type.description}</p>
+                  <div className='sm:ml-4 flex-1 text-left w-full'>
+                    <div className="flex justify-between items-center flex-wrap gap-1">
+                      <h3 className='font-medium text-sm sm:text-base'>{type.name}</h3>
+                      <span className='text-xs font-medium px-2 py-0.5 rounded-full bg-gray-700'>
+                        {type.matches}
+                      </span>
+                    </div>
+                    <p className='text-xs sm:text-sm text-gray-400 mt-1'>{type.description}</p>
                   </div>
-                  <span className='text-sm font-medium px-3 py-1 rounded-full bg-gray-700'>
-                    {type.matches}
-                  </span>
                 </button>
               );
             })}
@@ -169,9 +171,9 @@ export default function CreateGame() {
 
         {/* Stake Amount Input */}
         <div className='space-y-4'>
-          <h2 className='text-xl font-semibold text-gray-200 flex items-center'>
-            <Coins className="w-5 h-5 mr-2 text-yellow-400" />
-            SET YOUR BATTLE STAKE
+          <h2 className='text-lg sm:text-xl font-semibold text-gray-200 flex items-center flex-wrap'>
+            <Coins className="w-5 h-5 mr-2 text-yellow-400 flex-shrink-0" />
+            <span className="text-sm sm:text-base">SET YOUR BATTLE STAKE</span>
           </h2>
           <div className='relative'>
             <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
@@ -184,14 +186,14 @@ export default function CreateGame() {
               value={stakeAmount}
               onChange={(e) => setStakeAmount(e.target.value)}
               placeholder={`Enter ${tokenSymbol} amount`}
-              className='w-full pl-10 pr-16 py-3 bg-gray-800 border-2 border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 transition-colors text-white'
+              className='w-full pl-10 pr-16 py-3 bg-gray-800 border-2 border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 transition-colors text-white text-sm sm:text-base'
             />
             <div className='absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none'>
-              <span className='text-yellow-400'>{tokenSymbol}</span>
+              <span className='text-yellow-400 text-sm sm:text-base'>{tokenSymbol}</span>
             </div>
           </div>
-          <p className='flex items-center text-sm text-gray-400'>
-            <Info className='w-4 h-4 mr-1' />
+          <p className='flex items-center text-xs sm:text-sm text-gray-400'>
+            <Info className='w-4 h-4 mr-1 flex-shrink-0' />
             Stake must be greater than 0 {tokenSymbol}
           </p>
         </div>
@@ -200,7 +202,7 @@ export default function CreateGame() {
         <button
           onClick={handleCreateGame}
           disabled={!stakeAmount || isLoading}
-          className={`w-full py-4 rounded-lg font-semibold flex items-center justify-center space-x-2
+          className={`w-full py-3 sm:py-4 rounded-lg font-semibold flex items-center justify-center space-x-2
           ${
             !stakeAmount
               ? 'bg-gray-700 text-gray-400 cursor-not-allowed'
@@ -209,11 +211,11 @@ export default function CreateGame() {
         `}
         >
           {isLoading ? (
-            <div className='w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin' />
+            <div className='w-5 h-5 sm:w-6 sm:h-6 border-2 border-white border-t-transparent rounded-full animate-spin' />
           ) : (
             <>
-              <Swords className='w-5 h-5' />
-              <span>FORGE YOUR BATTLE</span>
+              <Swords className='w-4 h-4 sm:w-5 sm:h-5' />
+              <span className="text-sm sm:text-base">FORGE YOUR BATTLE</span>
             </>
           )}
         </button>

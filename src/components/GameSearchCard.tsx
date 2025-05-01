@@ -58,10 +58,10 @@ const GameSearchCard: React.FC<GameSearchCardProps> = ({
       game?.players[1] === '0x0000000000000000000000000000000000000000')
   )
     return (
-      <div className='flex flex-col items-center justify-center w-full h-full p-6 bg-gray-800 rounded-lg border-2 border-gray-700'>
+      <div className='flex flex-col items-center justify-center w-full h-full p-4 sm:p-6 bg-gray-800 rounded-lg border-2 border-gray-700'>
         {/* Updated to Game Not Found Component */}
-        <Gamepad2 className='w-12 h-12 text-red-500 mb-4' />
-        <p className='text-gray-300 text-lg'>
+        <Gamepad2 className='w-10 h-10 sm:w-12 sm:h-12 text-red-500 mb-3 sm:mb-4' />
+        <p className='text-gray-300 text-base sm:text-lg text-center'>
           Game not found. Please check the game ID.
         </p>
       </div>
@@ -81,16 +81,16 @@ const GameSearchCard: React.FC<GameSearchCardProps> = ({
   };
 
   return (
-    <div className='w-full rounded-lg border-2 border-gray-700 bg-gray-800/80 p-6 backdrop-blur-sm hover:border-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 transform hover:-translate-y-1'>
+    <div className='w-full rounded-lg border-2 border-gray-700 bg-gray-800/80 p-4 sm:p-6 backdrop-blur-sm hover:border-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 transform hover:-translate-y-1'>
       {/* Header Section */}
-      <div className='mb-6 flex items-start justify-between'>
-        <div className='flex items-start space-x-4'>
-          <div className='flex h-12 w-12 items-center justify-center rounded-lg bg-gray-700/50 animate-pulse'>
+      <div className='mb-4 sm:mb-6'>
+        <div className='flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4'>
+          <div className='flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-lg bg-gray-700/50 animate-pulse flex-shrink-0'>
             {gameTypeInfo.icon}
           </div>
-          <div>
-            <div className='flex items-center gap-2'>
-              <h3 className='text-lg font-semibold text-white'>
+          <div className='flex-1'>
+            <div className='flex flex-wrap items-center gap-2'>
+              <h3 className='text-base sm:text-lg font-semibold text-white'>
                 Battle #{game?.gameId.toString()}
               </h3>
               <button
@@ -101,7 +101,7 @@ const GameSearchCard: React.FC<GameSearchCardProps> = ({
                 <Copy className='h-4 w-4' />
               </button>
               <span
-                className={`ml-2 flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium
+                className={`flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium
                 ${
                   game?.isActive
                     ? 'bg-green-900/50 text-green-400'
@@ -119,18 +119,18 @@ const GameSearchCard: React.FC<GameSearchCardProps> = ({
                 )}
               </span>
             </div>
-            <div className='mt-1 flex items-center gap-3'>
+            <div className='mt-2 flex flex-wrap items-center gap-3'>
               <div className='flex items-center gap-1.5 text-gray-400'>
-                <CircleDollarSign className='h-4 w-4 text-yellow-500' />
-                <span>{formattedStake} {tokenSymbol}</span>
+                <CircleDollarSign className='h-4 w-4 text-yellow-500 flex-shrink-0' />
+                <span className='text-xs sm:text-sm'>{formattedStake} {tokenSymbol}</span>
               </div>
               <div className='flex items-center gap-1.5 text-gray-400'>
                 {hasSecondPlayer ? (
-                  <Users className='h-4 w-4 text-blue-500' />
+                  <Users className='h-4 w-4 text-blue-500 flex-shrink-0' />
                 ) : (
-                  <User className='h-4 w-4 text-blue-500' />
+                  <User className='h-4 w-4 text-blue-500 flex-shrink-0' />
                 )}
-                <span>{hasSecondPlayer ? '2 WARRIORS' : '1 WARRIOR'}</span>
+                <span className='text-xs sm:text-sm'>{hasSecondPlayer ? '2 WARRIORS' : '1 WARRIOR'}</span>
               </div>
             </div>
           </div>
@@ -139,10 +139,10 @@ const GameSearchCard: React.FC<GameSearchCardProps> = ({
 
       {/* Game Type and Join Button */}
       <div className='space-y-4'>
-        <div className='flex items-center gap-2 text-gray-300'>
+        <div className='flex flex-wrap items-center gap-2 text-gray-300'>
           <div className='flex items-center gap-2 rounded-lg bg-gray-700/50 px-3 py-2'>
             {gameTypeInfo.icon}
-            <span>{gameTypeInfo.name}</span>
+            <span className='text-xs sm:text-sm'>{gameTypeInfo.name}</span>
           </div>
         </div>
 
@@ -150,7 +150,7 @@ const GameSearchCard: React.FC<GameSearchCardProps> = ({
           <button
             onClick={() => onJoinGame(game?.gameId, game?.stake)}
             disabled={isLoading || hasSecondPlayer}
-            className={`w-full rounded-lg px-4 py-3 font-medium transition-all duration-300 
+            className={`w-full rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 font-medium transition-all duration-300 
             ${
               hasSecondPlayer
                 ? 'bg-gray-700 text-gray-400 cursor-not-allowed'
@@ -161,15 +161,15 @@ const GameSearchCard: React.FC<GameSearchCardProps> = ({
             <span className='flex items-center justify-center gap-2'>
               {hasSecondPlayer ? (
                 <>
-                  <Users className='h-5 w-5' />
-                  ARENA FULL
+                  <Users className='h-4 h-4 sm:h-5 sm:w-5' />
+                  <span className='text-xs sm:text-base'>ARENA FULL</span>
                 </>
               ) : isLoading ? (
-                <div className='w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin' />
+                <div className='w-5 h-5 sm:w-6 sm:h-6 border-2 border-white border-t-transparent rounded-full animate-spin' />
               ) : (
                 <>
-                  <Swords className='h-5 w-5' />
-                  JOIN BATTLE
+                  <Swords className='h-4 h-4 sm:h-5 sm:w-5' />
+                  <span className='text-xs sm:text-base'>JOIN BATTLE</span>
                 </>
               )}
             </span>
@@ -178,9 +178,9 @@ const GameSearchCard: React.FC<GameSearchCardProps> = ({
 
         {playerCompleteAndIsUserPlayer && (
           <Link href={`/game/${game?.gameId}`} passHref>
-            <button className='flex items-center justify-center p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-500 hover:to-purple-500 transition-all duration-300 w-full mt-5 hover:shadow-lg hover:shadow-blue-500/20 transform hover:-translate-y-1'>
-              <Swords className='h-5 w-5 mr-2' />
-              ENTER BATTLE ARENA
+            <button className='flex items-center justify-center p-3 sm:p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-500 hover:to-purple-500 transition-all duration-300 w-full hover:shadow-lg hover:shadow-blue-500/20 transform hover:-translate-y-1'>
+              <Swords className='h-4 h-4 sm:h-5 sm:w-5 mr-2' />
+              <span className='text-xs sm:text-base'>ENTER BATTLE ARENA</span>
             </button>
           </Link>
         )}
