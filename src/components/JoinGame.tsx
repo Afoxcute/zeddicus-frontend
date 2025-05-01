@@ -125,23 +125,23 @@ useEffect(() => {
     <ErrorBoundary fallback={<div>Something went wrong</div>}>
       <div className='space-y-6 text-white'>
         {/* Search and Refresh Section */}
-        <div className='flex gap-2 sm:gap-4'>
+        <div className='flex gap-4'>
           <div className='flex-1 relative'>
-            <Search className='absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-400 w-4 h-4 sm:w-5 sm:h-5' />
+            <Search className='absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-400 w-5 h-5' />
             <input
               type='number'
               placeholder='Enter battle ID to join'
               value={searchQuery}
               onChange={(e) => setSearchQuery(Number(e.target.value))}
-              className='w-full pl-8 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 bg-gray-800 border-2 border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 transition-colors text-white text-sm sm:text-base'
+              className='w-full pl-10 pr-4 py-3 bg-gray-800 border-2 border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 transition-colors text-white'
             />
           </div>
           <button
             onClick={handleSearch}
-            className='p-2.5 sm:p-3 bg-gray-800 border-2 border-gray-700 rounded-lg hover:border-blue-500 transition-all duration-300 hover:bg-blue-500/10 flex-shrink-0'
+            className='p-3 bg-gray-800 border-2 border-gray-700 rounded-lg hover:border-blue-500 transition-all duration-300 hover:bg-blue-500/10'
           >
             <Search
-              className={`w-4 h-4 sm:w-5 sm:h-5 text-blue-400 ${
+              className={`w-5 h-5 text-blue-400 ${
                 isLoading ? 'animate-spin' : ''
               }`}
             />
@@ -151,22 +151,22 @@ useEffect(() => {
         {/* Active Games List */}
         <div className='space-y-4'>
           <div className='flex justify-between items-center'>
-            <h2 className='text-lg sm:text-xl font-semibold text-gray-200 flex items-center flex-wrap'>
-              <Swords className="w-5 h-5 mr-2 text-blue-400 flex-shrink-0" />
-              <span className="text-sm sm:text-base">FIND YOUR BATTLE</span>
+            <h2 className='text-xl font-semibold text-gray-200 flex items-center'>
+              <Swords className="w-5 h-5 mr-2 text-blue-400" />
+              FIND YOUR BATTLE
             </h2>
           </div>
 
           <div className='space-y-4'>
             {!activeGames ? (
-              <div className='text-center py-6 sm:py-8 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 transition-all duration-300'>
-                <Users className='w-10 h-10 sm:w-12 sm:h-12 text-gray-600 mx-auto mb-2 sm:mb-3' />
-                <p className='text-gray-400 text-sm sm:text-base'>No active battles found</p>
+              <div className='text-center py-8 bg-gray-800 rounded-lg border border-gray-700 hover:border-blue-500 transition-all duration-300'>
+                <Users className='w-12 h-12 text-gray-600 mx-auto mb-3' />
+                <p className='text-gray-400'>No active battles found</p>
                 <button
                   onClick={handleSearch}
-                  className='mt-3 sm:mt-4 text-blue-400 hover:text-blue-300 text-xs sm:text-sm flex items-center justify-center gap-1 sm:gap-2 transition-all duration-300 hover:scale-105'
+                  className='mt-4 text-blue-400 hover:text-blue-300 text-sm flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105'
                 >
-                  <RefreshCcw className='w-3 h-3 sm:w-4 sm:h-4' />
+                  <RefreshCcw className='w-4 h-4' />
                   SEARCH FOR BATTLES
                 </button>
               </div>
